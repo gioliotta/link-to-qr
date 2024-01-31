@@ -13,8 +13,6 @@ function App() {
       /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi
     );
 
-  //!  opheragraphxyz y responsive
-
   function generateQR() {
     //? El load es simulado, el QR se genera de manera instantánea, pero decidí colocarlo para que haya un pequeño feedback, ya que el QR cambia tan veloz que sin el load tal vez el usuario no se percata de que se creó.
     if (!input) {
