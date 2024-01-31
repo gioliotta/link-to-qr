@@ -174,7 +174,7 @@ const Loading = () => (
 const DeleteLink = ({ onClick }) => (
   <svg
     onClick={onClick}
-    className="w-7 h-7 absolute top-2.5 right-20 duration-75 cursor-pointer hover:scale-110"
+    className="w-7 h-7 absolute top-2.3 right-20 duration-75 cursor-pointer hover:scale-110"
     viewBox="0 0 24 24"
     fill="#ff4949"
   >
