@@ -63,6 +63,11 @@ function App() {
       .catch(err => console.error(`Error in download: ${err.message}`));
   }
 
+  async function pasteUrl() {
+    const url = await navigator.clipboard.readText();
+    setInput(url);
+  }
+
   return (
     <div className="w-full h-full flex flex-col justify-center items-center">
       <Toaster position="top-rigth" reverseOrder={false} />
@@ -88,6 +93,12 @@ function App() {
                 type="url"
               />
               <DeleteLink onClick={cleanInput} />
+              <button
+                onClick={pasteUrl}
+                className="text-md sm:text-lg absolute cursor-pointer duration-75 bg-slate-500 px-2 py-1 rounded-md text-white top-2.7 right-1.5 hover:bg-slate-400"
+              >
+                Paste
+              </button>
             </div>
             <button
               onClick={generateQR}
@@ -163,7 +174,7 @@ const Loading = () => (
 const DeleteLink = ({ onClick }) => (
   <svg
     onClick={onClick}
-    className="w-7 h-7 absolute top-2.5 right-1.5 duration-75 cursor-pointer hover:scale-110"
+    className="w-7 h-7 absolute top-2.5 right-20 duration-75 cursor-pointer hover:scale-110"
     viewBox="0 0 24 24"
     fill="#ff4949"
   >
