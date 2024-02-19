@@ -4,7 +4,7 @@ import html2canvas from "html2canvas";
 import toast, { Toaster } from "react-hot-toast";
 
 function App() {
-  const MY_PORTFOLIO = "https://gioliotta.online",
+  const MY_PORTFOLIO = "https://gixi.me",
     [input, setInput] = useState(""),
     [link, setLink] = useState(MY_PORTFOLIO),
     [lastLink, setLastLink] = useState(""),
@@ -140,9 +140,9 @@ function App() {
         href={MY_PORTFOLIO}
         target="_blank"
         className="text-slate-300 text-md sm:text-lg hover:text-white cursor-pointer w-full text-center pt-4"
-        title="gioliotta contact"
+        title="gixi contact"
       >
-        Created with ❤️ by <u>gioliotta</u>
+        Created with ❤️ by <u>gixi</u>
       </a>
     </div>
   );
