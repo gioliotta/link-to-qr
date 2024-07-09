@@ -4,7 +4,7 @@ import html2canvas from "html2canvas";
 import toast, { Toaster } from "react-hot-toast";
 
 function App() {
-  const MY_PORTFOLIO = "https://gixi.me",
+  const MY_PORTFOLIO = "https://gixi.dev",
     [input, setInput] = useState(""),
     [link, setLink] = useState(MY_PORTFOLIO),
     [lastLink, setLastLink] = useState(""),
@@ -16,12 +16,12 @@ function App() {
   function generateQR() {
     //? El load es simulado, el QR se genera de manera instantánea, pero decidí colocarlo para que haya un pequeño feedback, ya que el QR cambia tan veloz que sin el load tal vez el usuario no se percata de que se creó.
     if (!input) {
-      toast.error("Please enter a link");
+      toast.error("Por favor, ingresa un link");
       return;
     }
 
     if (link == lastLink) {
-      toast.error("The QR has already been generated");
+      toast.error("El QR ya fue generado");
       return;
     }
 
@@ -31,11 +31,11 @@ function App() {
       setLastLink(input);
       const time = setTimeout(() => {
         setLoadQR(false);
-        toast.success("QR generated correctly");
+        toast.success("QR generado correctamente");
       }, 1500);
       return () => clearTimeout(time);
     } else {
-      toast.error("Invalid link");
+      toast.error("Link inválido");
       return;
     }
   }
@@ -48,7 +48,7 @@ function App() {
 
   function donwloadQR() {
     if (!input) {
-      toast.error("Input is empty");
+      toast.error("Input vacío");
       return;
     }
 
@@ -60,7 +60,7 @@ function App() {
         link.download = "qrcode.png";
         link.click();
       })
-      .catch(err => console.error(`Error in download: ${err.message}`));
+      .catch(err => console.error(`Error en la descarga: ${err.message}`));
   }
 
   async function pasteUrl() {
@@ -74,11 +74,11 @@ function App() {
       <main className="flex flex-col gap-y-8 items-center justify-start h-full w-full sm:w-[420px] font-mono px-4 pt-6 pb-6 rounded-lg bg-gray-200  border-2 border-gray-600">
         <div className="flex flex-col w-full justify-center items-center gap-y-2">
           <h1 className="text-4xl sm:text-5xl text-balance font-bold text-center w-full text-gray-600">
-            <span className="text-blue-700">Link</span> to{" "}
+            <span className="text-blue-700">Link</span> a{" "}
             <span className="text-black">QR</span>
           </h1>
           <p className="text-gray-700 text-lg text-center text-pretty">
-            Enter a link to generate a QR code
+            Ingresa un link para generar su QR
           </p>
         </div>
 
@@ -89,7 +89,7 @@ function App() {
                 value={input}
                 onChange={e => setInput(e.target.value)}
                 className="w-full text-md sm:text-lg pl-4 placeholder-gray-500 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 py-2 text-blue-700"
-                placeholder="Enter your link here"
+                placeholder="www.example.com"
                 type="url"
               />
               <DeleteLink onClick={cleanInput} />
@@ -97,7 +97,7 @@ function App() {
                 onClick={pasteUrl}
                 className="text-md sm:text-lg absolute cursor-pointer duration-75 bg-slate-500 px-2 py-1 rounded-md text-white top-2.7 right-1.5 hover:bg-slate-400"
               >
-                Paste
+                Pegar
               </button>
             </div>
             <button
@@ -105,7 +105,7 @@ function App() {
               className="w-full self-center py-2 font-semibold rounded-lg text-white capitalize text-xl md:text-2xl duration-75 border bg-gray-900 hover:scale-95 hover:bg-gray-800 "
               type="button"
             >
-              generate QR
+              generar QR
             </button>
           </div>
 
@@ -130,7 +130,7 @@ function App() {
             onClick={donwloadQR}
             className="w-[230px] self-center py-2 text-xl font-semibold border-2 border-green-300 bg-green-400 rounded-md duration-75 hover:bg-green-300"
           >
-            Download
+            Descargar
           </button>
         </div>
       </main>
@@ -140,9 +140,9 @@ function App() {
         href={MY_PORTFOLIO}
         target="_blank"
         className="text-slate-300 text-md sm:text-lg hover:text-white cursor-pointer w-full text-center pt-4"
-        title="gixi contact"
+        title="gixi contacto"
       >
-        Created with ❤️ by <u>gixi</u>
+        Creado con ❤️ por <u>gixi</u>
       </a>
     </div>
   );
